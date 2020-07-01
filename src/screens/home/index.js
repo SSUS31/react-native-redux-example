@@ -20,8 +20,8 @@ import { addTask } from '../../redux/actions/home';
 
 class Home extends React.Component{
     state = {
-        title: '',
-        description:''
+        title: null,
+        description:null
     }
 
     onChangeTitle = (text) => {
@@ -42,11 +42,13 @@ class Home extends React.Component{
             title:this.state.title,
             description:this.state.description
         }
-        this.props.addTask(task)
         this.setState({
-            title: '',
-            description:''
+            title: null,
+            description:null
         })
+        if(task.title != null) {
+            this.props.addTask(task)
+        }
     }
 
   render(){
@@ -77,7 +79,7 @@ class Home extends React.Component{
             />
 
         <Text>Total tasks count: {this.props.homeReducer.tasks.length}</Text>
-
+        <Text style={{fontSize:24}}>Delete status:   {this.props.homeReducer.deleteStatus}</Text>
       </View>
     )
   }

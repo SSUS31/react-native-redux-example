@@ -6,3 +6,9 @@ export function addTask(task){
         task
     }
 }
+// export function deleteTask(id){
+//     return{
+//         type:DELETE_TASK,
+//         id
+//     }
+// }
